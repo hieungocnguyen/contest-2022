@@ -6,18 +6,18 @@ const loginPasswork = document.getElementById('signup8');
 const textBottom = document.querySelector('.text-bottom');
 const blackBox = document.querySelector('.black-box')
 
-var testObject = []
-var n = 0
+let testObject = []
+let n = 0
 testObject.push({'id': 1, 'username': 'admin', 'password': 'admin123', 'active': true})
 localStorage.setItem('user', JSON.stringify(testObject))
-var n1 = JSON.parse(localStorage.getItem('user'))
+let n1 = JSON.parse(localStorage.getItem('user'))
 console.log(n1[0])
 
-const users = JSON.parse(localStorage.getItem("user") || "[]");
-users.forEach(function(user, index) {
-    console.log("[" + index + "]: " + user.id);
-});
-console.log(users)
+// const users = JSON.parse(localStorage.getItem("user") || "[]");
+// users.forEach(function(user, index) {
+//     console.log("[" + index + "]: " + user.id);
+// });
+// console.log(users)
 
 
 
@@ -30,13 +30,17 @@ function moveBlackBox2() {
     blackBox.classList.remove('move-black-box')
 }
 
-function signUpButton() {
+const hello2 = document.getElementById('hello2')
+hello2.addEventListener("click", () => {
     n++
     if (signupUsername.value != null && signupPasswork.value != null && signupConfirm != null &&
         signupUsername.value != '' && signupPasswork.value != '' && signupConfirm != '' ) {
         if (signupPasswork.value == signupConfirm.value) {
             testObject.push({'id': n, 'username': signupUsername.value.toString(), 'password': signupPasswork.value.toString(), 'active': true})
-            localStorage.setItem('user', JSON.stringify(testObject))
+            localStorage.setItem("user", JSON.stringify(testObject))
+            signupConfirm.value = ""
+            signupPasswork.value = ""
+            signupUsername.value = ""
             alert("Tao tai khoan thanh cong")
         }
         else{
@@ -46,6 +50,26 @@ function signUpButton() {
     else {
         alert("Enter username or passwork")
     }   
+})
+function signUpButton() {
+    // n++
+    // if (signupUsername.value != null && signupPasswork.value != null && signupConfirm != null &&
+    //     signupUsername.value != '' && signupPasswork.value != '' && signupConfirm != '' ) {
+    //     if (signupPasswork.value == signupConfirm.value) {
+    //         testObject.push({'id': n, 'username': signupUsername.value.toString(), 'password': signupPasswork.value.toString(), 'active': true})
+    //         localStorage.setItem("user", JSON.stringify(testObject))
+    //         signupConfirm.value = ""
+    //         signupPasswork.value = ""
+    //         signupUsername.value = ""
+    //         alert("Tao tai khoan thanh cong")
+    //     }
+    //     else{
+    //         alert("Wrong passwork")
+    //     }
+    // }    
+    // else {
+    //     alert("Enter username or passwork")
+    // }   
 }
 
 const good = document.getElementById('good');
