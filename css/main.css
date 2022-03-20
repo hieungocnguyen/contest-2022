@@ -91,9 +91,34 @@ body {
   justify-content: center;
   border: solid 2px var(--color-primary);
   color: var(--color-primary);
-  cursor: pointer;
+  position: relative;
 }
 
+.submenu {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: #fff;
+  width: 140px;
+  padding: 12px;
+  color: #050505;
+  display: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.user:hover .submenu {
+  display: block;
+}
+.submenu .editprofile:hover {
+  background: gainsboro;
+}
+.submenu .logout {
+  padding-right: 20px;
+  color: #050505;
+}
+.submenu .logout:hover {
+  background: gainsboro;
+}
 /* ======== MAIN ========= */
 .main {
   padding-top: 60px;
