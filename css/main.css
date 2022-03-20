@@ -395,3 +395,75 @@ body {
   color: var(--color-text);
   box-shadow: 0 2px 8px #ccc;
 }
+
+/* =========== MODAL ========== */
+.modal {
+  position: fixed;
+  z-index: 20;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.posting {
+  width: 400px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.post_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.post_head > .heading {
+  font-size: 20px;
+}
+
+.post_head > .close {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.post_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post_input {
+  outline: none;
+  border-radius: 8px;
+  width: 96%;
+  resize: none;
+  background: var(--white-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.button_post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_post div {
+  border-radius: 15px;
+  padding: 4px 10px;
+  border: solid 1px black;
+  cursor: pointer;
+}
+
+.active_model {
+  display: flex !important;
+}
+
+.button_post.disable {
+  color: #bbb;
+  cursor: not-allowed;
+}
