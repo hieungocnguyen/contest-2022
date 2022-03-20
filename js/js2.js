@@ -11,11 +11,15 @@ var n = 0
 testObject.push({'id': 1, 'username': 'admin', 'password': 'admin123', 'active': true})
 localStorage.setItem('user', JSON.stringify(testObject))
 var n1 = JSON.parse(localStorage.getItem('user'))
-console.log(n1[0].username)
-// var n2 = (JSON.parse(n1.id))
-// console.log(n2[0])
-// var getId = JSON.parse(localStorage.getItem('id'))
-// var getObject = JSON.parse(localStorage.getItem('user', (testObject)))
+console.log(n1[0])
+
+const users = JSON.parse(localStorage.getItem("user") || "[]");
+users.forEach(function(user, index) {
+    console.log("[" + index + "]: " + user.id);
+});
+console.log(users)
+
+
 
 function moveBlackBox() {
     blackBox.classList.add('move-black-box')
@@ -27,13 +31,13 @@ function moveBlackBox2() {
 }
 
 function signUpButton() {
-    // event.preventDefault();
     n++
     if (signupUsername.value != null && signupPasswork.value != null && signupConfirm != null &&
         signupUsername.value != '' && signupPasswork.value != '' && signupConfirm != '' ) {
         if (signupPasswork.value == signupConfirm.value) {
-            testObject.push({'id': n,'username: ': signupUsername.value, 'password: ': signupPasswork.value, 'acitve': true})
+            testObject.push({'id': n, 'username': signupUsername.value.toString(), 'password': signupPasswork.value.toString(), 'active': true})
             localStorage.setItem('user', JSON.stringify(testObject))
+            alert("Tao tai khoan thanh cong")
         }
         else{
             alert("Wrong passwork")
@@ -47,13 +51,28 @@ function signUpButton() {
 const good = document.getElementById('good');
 
 
+
 function getVal() {
+    var abc = JSON.parse(localStorage.getItem('user'))
+    console.log(abc)
     if (loginUsername.value !== null && loginPasswork.value !== null) {
-        if (loginUsername.value == n1[0].username && loginPasswork.value == n1[0].password) {
-            loginUsername.value = ""
-            loginPasswork.value = ""
-            good.href = 'main.html'
-        }
+        // if (loginUsername.value == abc[0].username && loginPasswork.value == abc[0].password) {
+        //     loginUsername.value = ""
+        //     loginPasswork.value = ""
+        //     good.href = 'main.html'
+        // }
+        abc.forEach(function(user, index) {
+            // index = index+1
+            if (loginUsername.value == user.username && loginPasswork.value == user.password) {
+                // loginUsername.value = ""
+                // loginPasswork.value = ""
+                good.href = 'main.html'
+                console.log("[" + index + "]: " + user.username);
+            } 
+            else {
+                console.log(2)
+            }
+        })
     }
     else {
         console.log('null');
