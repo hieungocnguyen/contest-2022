@@ -7,9 +7,9 @@ const textBottom = document.querySelector('.text-bottom');
 const blackBox = document.querySelector('.black-box')
 
 let testObject = []
-let n = 0
+
 testObject.push({'id': 1, 'username': 'admin', 'password': 'admin123', 'active': true})
-localStorage.setItem('user', JSON.stringify(testObject))
+// localStorage.setItem('user', JSON.stringify(testObject))
 let n1 = JSON.parse(localStorage.getItem('user'))
 console.log(n1[0])
 
@@ -32,7 +32,8 @@ function moveBlackBox2() {
 
 const hello2 = document.getElementById('hello2')
 hello2.addEventListener("click", () => {
-    n++
+    let n = 0
+    // n++
     if (signupUsername.value != null && signupPasswork.value != null && signupConfirm != null &&
         signupUsername.value != '' && signupPasswork.value != '' && signupConfirm != '' ) {
         if (signupPasswork.value == signupConfirm.value) {
@@ -42,6 +43,7 @@ hello2.addEventListener("click", () => {
             signupPasswork.value = ""
             signupUsername.value = ""
             alert("Tao tai khoan thanh cong")
+            n++
         }
         else{
             alert("Wrong passwork")
